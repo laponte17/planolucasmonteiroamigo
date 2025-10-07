@@ -36,106 +36,121 @@
             max-width: 900px;
             margin: auto;
         }
+        /* Ajuste para botões de abas em telas pequenas */
+        @media (max-width: 640px) {
+            .tab-nav {
+                flex-wrap: wrap;
+                justify-content: space-between;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+            .tab-button {
+                flex-grow: 1;
+                text-align: center;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+                font-size: 0.75rem; /* Menor em mobile */
+            }
+        }
     </style>
 </head>
 <body class="text-slate-800">
 
     <div class="container mx-auto p-0 sm:p-0 lg:p-0">
         <!-- Novo Cabeçalho com fundo HEX: B22F38 -->
-        <div class="bg-gray-100 mb-10 pt-4 pb-4" style="background-color: var(--header-red);">
+        <div class="bg-gray-100 mb-6 pt-4 pb-4" style="background-color: var(--header-red);">
             <header class="text-center mx-auto px-4">
-                <div class="flex flex-col items-center justify-center mb-4">
-                    <!-- Conteúdo da Logomarca Removido -->
+                <div class="flex flex-col items-center justify-center mb-2">
                     <!-- Título Principal Centralizado -->
-                    <h1 class="text-3xl md:text-4xl font-bold text-white mt-4">Plano Estratégico de Marketing Digital (45 Dias)</h1>
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-4">Plano Estratégico de Marketing Digital (45 Dias)</h1>
                 </div>
-                <p class="mt-1 text-lg text-white/90 pb-4">Consolidação da Marca Pessoal: Dr. Lucas Monteiro</p>
+                <p class="mt-1 text-base sm:text-lg text-white/90 pb-2">Consolidação da Marca Pessoal: Dr. Lucas Monteiro</p>
             </header>
         </div>
         
-        <main class="px-4 sm:px-6 lg:px-8">
-            <section id="timeline-visualization" class="mb-12 bg-white p-6 rounded-xl shadow-lg">
-                <h2 class="text-xl font-bold text-center mb-4 text-slate-900">Cronograma do Projeto</h2>
-                <p class="text-center text-slate-600 max-w-3xl mx-auto mb-6">Esta visualização representa a duração de cada fase do projeto ao longo dos 45 dias. As cores refletem o foco estratégico de cada período.</p>
+        <main class="px-3 sm:px-6 lg:px-8">
+            <section id="timeline-visualization" class="mb-8 bg-white p-4 sm:p-6 rounded-xl shadow-lg">
+                <h2 class="text-lg sm:text-xl font-bold text-center mb-3 text-slate-900">Cronograma do Projeto</h2>
+                <p class="text-center text-slate-600 max-w-3xl mx-auto mb-4 text-sm sm:text-base">Esta visualização representa a duração de cada fase do projeto ao longo dos 45 dias. As cores refletem o foco estratégico de cada período.</p>
                 <div class="chart-container">
                     <canvas id="timelineChart"></canvas>
                 </div>
             </section>
             
-            <section id="action-plan" class="mb-12">
-                <h2 class="text-xl font-bold text-center mb-4 text-slate-900">Fases do Plano de Ação</h2>
-                <p class="text-center text-slate-600 max-w-3xl mx-auto mb-8">Navegue pelas abas abaixo para explorar os passos detalhados, ações e objetivos de cada fase. O foco é construir progressivamente a autoridade digital.</p>
-                <div class="border-b border-slate-200 mb-8">
-                    <nav class="flex justify-center -mb-px space-x-6" aria-label="Tabs">
-                        <button class="tab-button active whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300" data-tab="fase1">
-                            FASE 1: Estrutura e Lançamento
+            <section id="action-plan" class="mb-8">
+                <h2 class="text-lg sm:text-xl font-bold text-center mb-3 text-slate-900">Fases do Plano de Ação</h2>
+                <p class="text-center text-slate-600 max-w-3xl mx-auto mb-6 text-sm sm:text-base">Navegue pelas abas abaixo para explorar os passos detalhados, ações e objetivos de cada fase. O foco é construir progressivamente a autoridade digital.</p>
+                <div class="border-b border-slate-200 mb-6">
+                    <nav class="tab-nav flex justify-center -mb-px space-x-2 sm:space-x-6" aria-label="Tabs">
+                        <button class="tab-button active whitespace-nowrap py-3 sm:py-4 px-1 border-b-2 font-medium text-xs sm:text-sm border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300" data-tab="fase1">
+                            FASE 1: Estrutura
                         </button>
-                        <button class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300" data-tab="fase2">
-                            FASE 2: Engajamento e Autoridade
+                        <button class="tab-button whitespace-nowrap py-3 sm:py-4 px-1 border-b-2 font-medium text-xs sm:text-sm border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300" data-tab="fase2">
+                            FASE 2: Engajamento
                         </button>
-                        <button class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300" data-tab="fase3">
-                            FASE 3: Conversão e Análise
+                        <button class="tab-button whitespace-nowrap py-3 sm:py-4 px-1 border-b-2 font-medium text-xs sm:text-sm border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300" data-tab="fase3">
+                            FASE 3: Conversão
                         </button>
                     </nav>
                 </div>
 
                 <div id="tab-content">
                     <div id="fase1" class="tab-panel">
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            <div class="bg-white p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
-                                <h3 class="font-bold text-lg mb-2" style="color: var(--lucas-red);">1. Configuração e Otimização do Perfil</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+                                <h3 class="font-bold text-base sm:text-lg mb-2" style="color: var(--lucas-red);">1. Configuração e Otimização do Perfil</h3>
                                 <p class="text-slate-600 text-sm">Criação do identificador de conta e otimização da Bio com título profissional, Proposta de Valor e CTA/link de agendamento.</p>
                             </div>
-                            <div class="bg-white p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
-                                <h3 class="font-bold text-lg mb-2" style="color: var(--lucas-red);">2. Identidade Visual e Pilares</h3>
+                            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+                                <h3 class="font-bold text-base sm:text-lg mb-2" style="color: var(--lucas-red);">2. Identidade Visual e Pilares</h3>
                                 <p class="text-slate-600 text-sm">Definição de Paleta, Tipografia e 5 *templates*. Mapeamento das 3 a 5 áreas de *super-especialidade* (pilares) em entrevista.</p>
                             </div>
-                            <div class="bg-white p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
-                                <h3 class="font-bold text-lg mb-2" style="color: var(--lucas-red);">3. Conteúdo de Lançamento e Mídia</h3>
+                            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+                                <h3 class="font-bold text-base sm:text-lg mb-2" style="color: var(--lucas-red);">3. Conteúdo de Lançamento e Mídia</h3>
                                 <p class="text-slate-600 text-sm">Produção de 9 posts iniciais. Agendamento de sessão fotográfica profissional e captação de 5 vídeos de rotina.</p>
                             </div>
-                            <div class="bg-white p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
-                                <h3 class="font-bold text-lg mb-2" style="color: var(--lucas-red);">4. Lançamento e Migração de Audiência</h3>
+                            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+                                <h3 class="font-bold text-base sm:text-lg mb-2" style="color: var(--lucas-red);">4. Lançamento e Migração de Audiência</h3>
                                 <p class="text-slate-600 text-sm">Coordenação de 2 publicações e 4 *Stories* no **Villa Pet** para convidar a audiência a seguir o novo perfil pessoal.</p>
                             </div>
                         </div>
                     </div>
                     <div id="fase2" class="tab-panel hidden">
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            <div class="bg-white p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
-                                <h3 class="font-bold text-lg mb-2" style="color: var(--lucas-gold);">5. Consistência de Conteúdo Periódico</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+                                <h3 class="font-bold text-base sm:text-lg mb-2" style="color: var(--lucas-gold);">5. Consistência de Conteúdo Periódico</h3>
                                 <p class="text-slate-600 text-sm">Publicação semanal de **3x Feed** (2 Carrosséis educativos, 1 Prova Social) e **2-3x Reels** (dicas e humanização).</p>
                             </div>
-                            <div class="bg-white p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
-                                <h3 class="font-bold text-lg mb-2" style="color: var(--lucas-gold);">6. Engajamento e Stories Diários</h3>
+                            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+                                <h3 class="font-bold text-base sm:text-lg mb-2" style="color: var(--lucas-gold);">6. Engajamento e Stories Diários</h3>
                                 <p class="text-slate-600 text-sm">Utilização diária da Caixa de Perguntas (mínimo de 3 respostas em vídeo). Demonstração da **expertise** em bastidores e casos clínicos.</p>
                             </div>
-                            <div class="bg-white p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
-                                <h3 class="font-bold text-lg mb-2" style="color: var(--lucas-gold);">7. Prova Social em Vídeo (Reels)</h3>
+                            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+                                <h3 class="font-bold text-base sm:text-lg mb-2" style="color: var(--lucas-gold);">7. Prova Social em Vídeo (Reels)</h3>
                                 <p class="text-slate-600 text-sm">Captação e edição de **2 a 3 Reels com depoimentos de clientes** sobre o atendimento e resultados do Dr. Lucas. Priorizar a autenticidade e a emoção.</p>
                             </div>
-                            <div class="bg-white p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
-                                <h3 class="font-bold text-lg mb-2" style="color: var(--lucas-gold);">8. Parceria Estratégica (Collab)</h3>
+                            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+                                <h3 class="font-bold text-base sm:text-lg mb-2" style="color: var(--lucas-gold);">8. Parceria Estratégica (Collab)</h3>
                                 <p class="text-slate-600 text-sm">Identificação de 1 perfil parceiro relevante (e.g., Pet Shop) para realizar uma Colaboração ou Live conjunta.</p>
                             </div>
                         </div>
                     </div>
                     <div id="fase3" class="tab-panel hidden">
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            <div class="bg-white p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
-                                <h3 class="font-bold text-lg mb-2" style="color: var(--lucas-gray);">9. Otimização da Conversão (CTAs)</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+                                <h3 class="font-bold text-base sm:text-lg mb-2" style="color: var(--lucas-gray);">9. Otimização da Conversão (CTAs)</h3>
                                 <p class="text-slate-600 text-sm">Revisão do conteúdo para inclusão de CTA explícito. Criação de Destaque no Instagram para **"Agendamento/Serviços"**.</p>
                             </div>
-                             <div class="bg-white p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
-                                <h3 class="font-bold text-lg mb-2" style="color: var(--lucas-gray);">10. Análise de Performance e Ajustes</h3>
+                             <div class="bg-white p-4 sm:p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+                                <h3 class="font-bold text-base sm:text-lg mb-2" style="color: var(--lucas-gray);">10. Análise de Performance e Ajustes</h3>
                                 <p class="text-slate-600 text-sm">Monitoramento semanal de métricas críticas (Alcance, Engajamento) e ajuste da estratégia editorial baseado nos resultados.</p>
                             </div>
-                             <div class="bg-white p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
-                                <h3 class="font-bold text-lg mb-2" style="color: var(--lucas-gray);">11. Teste de Publicidade Paga</h3>
+                             <div class="bg-white p-4 sm:p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+                                <h3 class="font-bold text-base sm:text-lg mb-2" style="color: var(--lucas-gray);">11. Teste de Publicidade Paga</h3>
                                 <p class="text-slate-600 text-sm">Implementação de um teste de impulsionamento (R$ 50-100) em posts de alta performance para aquisição de audiência.</p>
                             </div>
-                             <div class="bg-white p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
-                                <h3 class="font-bold text-lg mb-2" style="color: var(--lucas-gray);">12. Fechamento e Proposta de Manutenção</h3>
+                             <div class="bg-white p-4 sm:p-6 rounded-xl shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+                                <h3 class="font-bold text-base sm:text-lg mb-2" style="color: var(--lucas-gray);">12. Fechamento e Proposta de Manutenção</h3>
                                 <p class="text-slate-600 text-sm">Elaboração do **Relatório Final** e apresentação da Proposta de Manutenção (Plano de 90 dias) para escalabilidade.</p>
                             </div>
                         </div>
@@ -143,37 +158,37 @@
                 </div>
             </section>
             
-            <section id="deliverables" class="bg-white p-6 rounded-xl shadow-lg">
-                 <h2 class="text-xl font-bold text-center mb-4 text-slate-900">Entregáveis Cruciais do Projeto</h2>
-                 <p class="text-center text-slate-600 max-w-3xl mx-auto mb-8">Estes são os marcos principais que serão concluídos em datas chave ao longo do projeto de 45 dias, garantindo que estamos a progredir em direção ao nosso objetivo estratégico.</p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 text-center">
-                    <div class="p-4 rounded-lg bg-slate-50">
-                        <p class="font-semibold text-slate-700">Identidade Visual e Perfil</p>
-                        <p class="text-sm font-bold" style="color: var(--lucas-red);">Até Dia 5</p>
+            <section id="deliverables" class="bg-white p-4 sm:p-6 rounded-xl shadow-lg">
+                 <h2 class="text-lg sm:text-xl font-bold text-center mb-3 text-slate-900">Entregáveis Cruciais do Projeto</h2>
+                 <p class="text-center text-slate-600 max-w-3xl mx-auto mb-6 text-sm sm:text-base">Estes são os marcos principais que serão concluídos em datas chave ao longo do projeto de 45 dias, garantindo que estamos a progredir em direção ao nosso objetivo estratégico.</p>
+                <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4 text-center">
+                    <div class="p-3 sm:p-4 rounded-lg bg-slate-50">
+                        <p class="font-semibold text-slate-700 text-sm">Identidade Visual</p>
+                        <p class="text-xs sm:text-sm font-bold" style="color: var(--lucas-red);">Até Dia 5</p>
                     </div>
-                     <div class="p-4 rounded-lg bg-slate-50">
-                        <p class="font-semibold text-slate-700">Captação de Mídia Profissional</p>
-                        <p class="text-sm font-bold" style="color: var(--lucas-red);">Até Dia 7</p>
+                     <div class="p-3 sm:p-4 rounded-lg bg-slate-50">
+                        <p class="font-semibold text-slate-700 text-sm">Captação de Mídia</p>
+                        <p class="text-xs sm:text-sm font-bold" style="color: var(--lucas-red);">Até Dia 7</p>
                     </div>
-                    <div class="p-4 rounded-lg bg-slate-50">
-                        <p class="font-semibold text-slate-700">Lançamento do Feed (9 Posts)</p>
-                        <p class="text-sm font-bold" style="color: var(--lucas-red);">Até Dia 15</p>
+                    <div class="p-3 sm:p-4 rounded-lg bg-slate-50">
+                        <p class="font-semibold text-slate-700 text-sm">Lançamento do Feed</p>
+                        <p class="text-xs sm:text-sm font-bold" style="color: var(--lucas-red);">Até Dia 15</p>
                     </div>
-                    <div class="p-4 rounded-lg bg-slate-50">
-                        <p class="font-semibold text-slate-700">Execução da 1ª Live</p>
-                        <p class="text-sm font-bold" style="color: var(--lucas-gold);">Até Dia 25</p>
+                    <div class="p-3 sm:p-4 rounded-lg bg-slate-50">
+                        <p class="font-semibold text-slate-700 text-sm">Execução da 1ª Live</p>
+                        <p class="text-xs sm:text-sm font-bold" style="color: var(--lucas-gold);">Até Dia 25</p>
                     </div>
-                    <div class="p-4 rounded-lg bg-slate-50">
-                        <p class="font-semibold text-slate-700">Relatório de Resultados</p>
-                        <p class="text-sm font-bold" style="color: var(--lucas-gray);">No Dia 45</p>
+                    <div class="p-3 sm:p-4 rounded-lg bg-slate-50">
+                        <p class="font-semibold text-slate-700 text-sm">Relatório Final</p>
+                        <p class="text-xs sm:text-sm font-bold" style="color: var(--lucas-gray);">No Dia 45</p>
                     </div>
                 </div>
             </section>
 
         </main>
 
-        <footer class="text-center mt-12 py-4 border-t border-slate-200">
-            <p class="text-sm text-slate-500">&copy; 2025 Painel de Ação Estratégico. Todos os direitos reservados.</p>
+        <footer class="text-center mt-8 py-3 border-t border-slate-200">
+            <p class="text-xs text-slate-500">&copy; 2025 Painel de Ação Estratégico. Todos os direitos reservados.</p>
         </footer>
     </div>
 
